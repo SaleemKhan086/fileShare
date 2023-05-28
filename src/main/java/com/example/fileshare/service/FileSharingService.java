@@ -27,7 +27,9 @@ public class FileSharingService {
     private String BUCKET_NAME;
 
     public void uploadFile(MultipartFile file){
-        amazonS3.putObject(BUCKET_NAME,Instant.now()+"_"+file.getOriginalFilename(),converFile(file));
+        File convertedFile = converFile(file);
+        amazonS3.putObject(BUCKET_NAME,Instant.now()+"_"+file.getOriginalFilename(),convertedFile);
+        convertedFile.delete();
     }
 
     public File downloadFile(String keyname){
