@@ -1,0 +1,7 @@
+aws:
+  region: ap-south-1
+  credentials:
+    access-key: access-key
+    secret-key: secret-key
+  s3:
+    bucket-name: filesharing-app-121212
